@@ -6,6 +6,7 @@ require 'spymemcached_store/version'
 Gem::Specification.new do |spec|
   spec.name          = "spymemcached_store"
   spec.version       = SpymemcachedStore::VERSION
+  spec.platform      = 'java'
   spec.authors       = ["Xiao Li"]
   spec.email         = ["swing1979@gmail.com"]
   spec.summary       = %q{Rails 3 & 4 cache store for spymemcached.jruby.}
