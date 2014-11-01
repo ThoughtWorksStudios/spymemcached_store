@@ -1,6 +1,7 @@
 # SpymemcachedStore
 
 This is Rails 4 compatible cache store for [spymemcached.jruby](https://github.com/ThoughtWorksStudios/spymemcached.jruby)
+to replace Rails' default memcache client Dalli on JRuby platform.
 
 ## Installation
 
@@ -25,6 +26,11 @@ Or install it yourself as:
 Supports all Rails cache store options, see [spymemcached.jruby](https://github.com/ThoughtWorksStudios/spymemcached.jruby) for additional options.
 
 It is not recommended to use :compress and :compress_threshold options, as spymemcached.jruby does it by default.
+
+## Credits
+
+Most of code including tests is coming from Rails codebase v4.1.6.
+Only replaced Dalli related part with spymemcached.jruby to keep API compatible.
 
 ## Contributing
 

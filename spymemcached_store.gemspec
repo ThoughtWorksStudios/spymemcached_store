@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.platform      = 'java'
   spec.authors       = ["Xiao Li"]
   spec.email         = ["swing1979@gmail.com"]
-  spec.summary       = %q{Rails 3 & 4 cache store for spymemcached.jruby.}
-  spec.description   = %q{Rails 3 & 4 cache store for spymemcached.jruby.}
+  spec.summary       = %q{Rails 4 cache store for spymemcached.jruby.}
+  spec.description   = %q{Rails 4 cache store for spymemcached.jruby.}
   spec.homepage      = "https://github.com/ThoughtWorksStudios/spymemcached_store"
   spec.license       = "MIT"
 

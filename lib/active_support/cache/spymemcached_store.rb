@@ -5,7 +5,6 @@ module ActiveSupport
   module Cache
     class SpymemcachedStore < ActiveSupport::Cache::Store
 
-      # namespace
       def initialize(*addresses)
         addresses = addresses.flatten
         options = addresses.extract_options!
