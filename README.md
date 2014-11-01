@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-    ActiveSupport::Cache.lookup_store(:spymemcached_store, :expires_in => 60, :namespace => 'app-namespace')
+    config.cache_store = :spymemcached_store, { :expires_in => 60, :namespace => 'app-namespace', :timeout => 0.1 }
 
 Supports all Rails cache store options, see [spymemcached.jruby](https://github.com/ThoughtWorksStudios/spymemcached.jruby) for additional options.
 
