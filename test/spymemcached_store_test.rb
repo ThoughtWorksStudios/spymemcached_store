@@ -2,6 +2,8 @@ gem 'minitest' # make sure we get the gem, not stdlib
 require 'minitest'
 require "minitest/autorun"
 
+$LOAD_PATH.unshift(File.expand_path(File.join(File.dirname(__FILE__), '../lib')))
+
 require 'active_support'
 require 'active_support/inflector'
 require 'mocha/setup' # FIXME: stop using mocha
@@ -76,6 +78,16 @@ class SpymemcachedStoreTest < ::Minitest::Test
     assert_equal 'bar', cache.read('foo')
     assert_nil @cache.read('foo')
     assert_equal 'bar', @cache.read('abc:foo')
+  end
+
+  def test_raw_option
+    @cache.write('foo', '1')
+    assert_equal '1', @cache.read('foo')
+    assert_equal -1, @cache.increment('foo')
+
+    @cache.write('bar', '1', :raw => true)
+    assert_equal '1', @cache.read('bar')
+    assert_equal 2, @cache.increment('bar')
   end
 
   def assert_not_equal(expected, result)

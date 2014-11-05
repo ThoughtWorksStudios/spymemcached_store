@@ -114,7 +114,7 @@ module ActiveSupport
           # Set the memcache expire a few minutes in the future to support race condition ttls on read
           expires_in += 5.minutes
         end
-        @client.send(method, key, value, expires_in)
+        @client.send(method, key, value, expires_in, options)
       rescue Spymemcached::Error => e
         logger.error("Spymemcached::Error (#{e}): #{e.message}") if logger
         false
