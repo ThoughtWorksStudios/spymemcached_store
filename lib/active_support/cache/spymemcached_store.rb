@@ -34,7 +34,7 @@ module ActiveSupport
       def read_multi(*names)
         options = names.extract_options!
         options = merged_options(options)
-        keys_to_names = Hash[names.map{|name| [namespaced_key(name, options), name]}]
+        keys_to_names = Hash[names.map{|name| [normalize_key(name, options), name]}]
         raw_values = @client.get_multi(keys_to_names.keys)
         values = {}
         raw_values.each do |key, value|
@@ -160,6 +160,14 @@ module ActiveSupport
           retval
         end
       end
+
+      private
+
+      if ActiveSupport::VERSION::MAJOR < 5
+         def normalize_key(*args)
+           namespaced_key(*args)
+         end
+       end
     end
   end
 end
